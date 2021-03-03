@@ -11,7 +11,7 @@ window.addEventListener('change', function(e) {
     if(e.target.id === 'series') { // collect refresh material list and collect tool type
         updateMaterials(e)
         output(e)
-    } else if ( e.target.id === 'material' || e.target.id === 'type-end' ) { // collect drop down selections
+    } else if ( e.target.id === 'material' || e.target.id === 'tool-type' ) { // collect drop down selections
         outputObj[`${e.target.id}`] = e.target.selectedOptions[0].innerText
         output(e)
     }  else if( e.target.classList.value === 'collect' ) { // collect other input data
@@ -83,7 +83,6 @@ function post(e) {
     postDOM.innerHTML = "";
     for ( const [key, value] of Object.entries(e) ) {
         postDOM.insertAdjacentHTML('beforeend',`<li>${key} - ${value}</li>`)
-        // console.log(e)
     }
 }
 

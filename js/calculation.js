@@ -4,6 +4,7 @@ var input = {}
 var output = {}
 
 export function runCalculate(e) {
+    console.log(e)
 return updateCalc(e)
 }
 
@@ -17,8 +18,6 @@ function updateCalc(input) {
     // add material selection data to filtered object
     var materialType = materialTable.filter( lookup => lookup.material === input.material )
     Object.assign(filterInput[0],materialType[0])
-
-
 
     // filter for series table
     filterInput[0].table = filterInput[0].table.filter(lookup => lookup.series == filterInput[0].series && lookup.material == filterInput[0].material)
@@ -35,6 +34,7 @@ function updateCalc(input) {
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
     output['ipm'] = output['ipt'] * output['rpm'] * filterInput[0]['num-teeth'];
     // apply chip thinning
+    console.log(filterInput[0])
     chipThin(output, filterInput[0])
     // continue after chip thinning update
     output['removal'] = filterInput[0]['depth-of-cut'] * filterInput[0]['step-over'] * output['ipm'];
