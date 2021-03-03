@@ -7,7 +7,6 @@ export function runCalculate(e) {
 }
 
 function updateCalc(input) {
-    console.log(input)
     // find matching SFM table
     var filterInput = sfmTable.filter(lookup => lookup.series == input.series && lookup.material == input.material)
 
@@ -113,7 +112,7 @@ function thinningBN(obj, input) {
         obj['actual-chip-thickness'] = obj['ipt'] / obj['combined-chip-thin']
     }
     obj['ipt'] = obj['actual-chip-thickness'];
-    obj['rpm'] = Math.round( Math.min( obj['rpm'], obj['rpm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
+    obj['rpm'] = Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
     obj['ipm'] = obj['ipt'] * obj['rpm'] * input['num-teeth']
 }
 
@@ -128,6 +127,6 @@ function thinningRAD(obj, input) {
         }
     }
     obj['ipt'] = input.fpt / obj['radial-chip-thinning-factor'];
-    obj['rpm'] = Math.round( Math.min( obj['rpm'], obj['rpm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
+    obj['rpm'] = Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
     obj['ipm'] = obj['ipt'] * obj['rpm'] * input['num-teeth']
 }
