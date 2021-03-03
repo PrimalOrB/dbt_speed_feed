@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>DBT Speed and Feed Calculations</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <section id="input">
+        <form>
+            <label for="series">Tool Type</label>
+            <select class="nav-content" id="series">
+            </select>
+            </br>
+            <label for="tool-type">Material Type</label>
+            <select class="nav-content" id="material">
+            </select>
+            </br>
+            <label for="measure">Measure: </label>
+            <select id="measure" class="input-form collect" value="Imperial">
+                <option value="Imperial">Imperial</option>
+                <!-- <option value="Metric">Metric</option> -->
+            </select><br>
+            <label for="cut-dia">Cut Dia</label>
+            <input class="collect" type="number" min="0" max="1" step="0.0625" id="dia" value="0.25">
+            </br>
+            <label for="num-flutes">Num Flutes</label>
+            <input class="collect" type="number" min="2" max="6" id="num-teeth" value="4">
+            </br>
+
+            <label for="type-end">End Type: </label>
+            <select id="type-end" class="input-form collect" value="FB">
+                <option value="FB">Square Corner</option>
+                <option value="BN">Ball Nose</option>
+                <option value="RAD">Corner Radius</option>
+            </select><br>
+
+            <label for="depth-of-cut">Depth Of Cut</label>
+            <input class="collect" type="number" min="0" max="5" step="0.0625" id="depth-of-cut" value=".25">
+            </br>
+            <label for="step-over">Step Over</label>
+            <input class="collect" type="number" min="0" max="0.5" step="0.005" id="step-over" value="0.035">
+            </br>
+            <label for="max-rpm">Max RPM</label>
+            <input class="collect" type="number" min="1000" max="30000" step="1000" id="max-rpm" value="15000">
+            </br>
+            <label for="aggression">Aggression</label>
+            <input class="collect" type="number" min="1" max="10" step="1" id="aggression" value="5">
+            </br>
+        </form>
+    </section>
+    <section">
+        <ul id="post">
+
+        </ul>
+
+        </section>
+
+
+        <script type="module" src="./js/calculation.js"></script>
+        <script type="module" src="./js/input.js"></script>
+
+</body>
+
+</html>
