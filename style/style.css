@@ -4,6 +4,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
  }
 
 .container { 
@@ -36,6 +37,8 @@ body {
 
 #input label {
   padding-left: 10px;
+  padding-bottom: .15em;
+  font-weight: bold;
 }
 
 #series, #material, #tool-type, input, #measure {
@@ -65,6 +68,11 @@ body {
 
 .key::after{
   content: ":";
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .value {

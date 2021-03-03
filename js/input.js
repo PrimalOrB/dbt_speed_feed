@@ -89,7 +89,6 @@ function post(e) {
 
 function hideDOM(e) {
     var type = e['tool-type']
-    console.log(type)
     switch( type ) {
         case 'RAD':
             document.getElementById('radius').parentNode.classList.remove("hide") 
