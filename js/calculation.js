@@ -7,6 +7,7 @@ export function runCalculate(e) {
 }
 
 function updateCalc(input) {
+    console.log(input)
     // find matching SFM table
     var filterInput = sfmTable.filter(lookup => lookup.series == input.series && lookup.material == input.material)
 
@@ -32,7 +33,9 @@ function updateCalc(input) {
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
     output['ipm'] = output['ipt'] * output['rpm'] * filterInput[0]['num-teeth'];
     // apply chip thinning
-    chipThin(output, filterInput[0])
+    if(input.thinning){
+        chipThin(output, filterInput[0])
+    }
     // continue after chip thinning update
     output['removal'] = filterInput[0]['depth-of-cut'] * filterInput[0]['step-over'] * output['ipm'];
     if(filterInput[0]['specific-energy'] ) { 

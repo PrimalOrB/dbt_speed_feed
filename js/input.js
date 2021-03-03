@@ -16,6 +16,9 @@ window.addEventListener('change', function(e) {
         output(e)
     }  else if( e.target.classList.value === 'collect' ) { // collect other input data
         output(e)
+    }  else if( e.target.id === 'thinning' ) { // collect other input data
+        outputObj[`${e.target.id}`] = e.target.checked
+        output(e)
     }
 })
 

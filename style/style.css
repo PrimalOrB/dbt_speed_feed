@@ -90,4 +90,35 @@ p {
   margin: 0;
 }
 
+input[type=checkbox] {
+  margin: 15px;
+  position: relative;
+  /* visibility: hidden; */
+}
+
+input[type=checkbox]::before{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-33%) translateY(-33%);
+  border-width: 2px;
+  border-style: inset;
+  border-top-color: rgba(0, 0, 0, 0.75);
+  border-right-color: rgba(0, 0, 0, 0.5);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-left-color: rgba(0, 0, 0, 0.75);
+}
+
+
+input[type=checkbox]:checked::before{
+  background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(14,0,255,1) 0%, rgb(99, 99, 192) 25%, rgba(255,255,255,1) 65%);
+}
+
+
+
 
