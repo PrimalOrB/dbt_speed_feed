@@ -22,13 +22,13 @@ function updateCalc(input) {
     // filter for series table
     filterInput[0].table = filterInput[0].table.filter(lookup => lookup.series == filterInput[0].series && lookup.material == filterInput[0].material)
     // interpolate FPT values from low and high dia ranges
-    filterInput[0].fpt = parseFloat(interpolateFPT(filterInput[0])).toFixed(4)
+    filterInput[0].fpt = interpolateFPT(filterInput[0])
     // calculate outputs
     output['effective-diameter'] = filterInput[0].dia;
     output['sfm'] = interpolateSFM(filterInput[0]);
     output['ipt'] = filterInput[0]['step-over'] >= ( filterInput[0].dia * 0.8 ) ? 
-                    parseFloat(filterInput[0].fpt * 0.8).toPrecision(2) : 
-                    parseFloat(filterInput[0].fpt).toPrecision(2);
+                    filterInput[0].fpt * 0.8 : 
+                    filterInput[0].fpt;
     output['rpm'] = filterInput[0]['max-rpm'] === undefined ?
                     Math.round( output['sfm'] * 12 / Math.PI / filterInput[0].dia / 100 ) * 100 :
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
@@ -39,8 +39,8 @@ function updateCalc(input) {
     // continue after chip thinning update
     output['removal'] = filterInput[0]['depth-of-cut'] * filterInput[0]['step-over'] * output['ipm'];
     if(filterInput[0]['specific-energy'] ) { 
-        output['min-hp'] = parseFloat( ( output['removal'] * filterInput[0]['specific-energy'] ) / 0.75 ).toFixed(2);
-        output['spindle-tq']  = parseFloat( output['min-hp'] * 0.75 * 63030 / output['rpm'] ).toFixed(2);
+        output['min-hp'] = ( output['removal'] * filterInput[0]['specific-energy'] ) / 0.75;
+        output['spindle-tq']  = output['min-hp'] * 0.75 * 63030 / output['rpm'];
     };
     return output
 }
@@ -97,7 +97,7 @@ function chipThin(obj, input) {
 // FB Chip Thinning Calculations
 function thinningFB(obj, input) {
     if( input['step-over'] < ( input['dia'] / 2 ) ) {
-        obj['ipt'] = parseFloat(obj['actual-chip-thickness']).toFixed(4)
+        obj['ipt'] = obj['actual-chip-thickness']
         obj['ipm'] = obj['ipm'] / obj['radial-chip-thinning-factor'];
     }
 }
