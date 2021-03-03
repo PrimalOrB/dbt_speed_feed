@@ -1,18 +1,85 @@
-/* .drop-item {
-    display: block;
-    position: relative;
-  }
-  
-  .nav-content {
-    margin-left: 20px;
-    display: none;
-    flex-direction: column;
-  }
-  
-  .drop+.nav-content {
-    display: block;
-  }
-  
-  .nav-content a .drop-item {
-    margin-bottom: 2%;
-  } */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+ }
+
+.container { 
+  display: flex;
+  flex-wrap: nowrap;
+  width: 1000px;
+  height: 100vh;
+  padding-top: 3em;
+  background-color: aliceblue;
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);
+}
+
+#input {
+  flex: 1;
+  border-right: 1px solid black;
+  padding: 1em;
+  line-height: 1.15;
+}
+
+#input div:not(.hide) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5em
+}
+
+#input label ,#series, #material, #tool-type, #measure {
+  display: block;
+  width: 100%
+}
+
+#input label {
+  padding-left: 10px;
+}
+
+#series, #material, #tool-type, input, #measure {
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  outline: none;
+}
+
+#input .collect {
+  flex: auto;
+}
+
+#output {
+  flex: 1;
+  padding: 1em;
+}
+
+.result {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.key {
+  flex: 1;
+  text-align: right;
+}
+
+.key::after{
+  content: ":";
+}
+
+.value {
+  flex: 1;
+  margin-left: 2em;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+  max-height: 0;
+}
+
+.hide div {
+  margin: 0;
+}
+
+

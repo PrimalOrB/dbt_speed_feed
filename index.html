@@ -11,62 +11,93 @@
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <section id="input">
-        <form>
-            <label for="series">Tool Type</label>
-            <select class="nav-content" id="series">
-            </select>
-            </br>
-            <label for="tool-type">Material Type</label>
-            <select class="nav-content" id="material">
-            </select>
-            </br>
-            <label for="measure">Measure: </label>
-            <select id="measure" class="input-form collect" value="Imperial">
-                <option value="Imperial">Imperial</option>
-                <!-- <option value="Metric">Metric</option> -->
-            </select><br>
-            <label for="cut-dia">Cut Dia</label>
-            <input class="collect" type="number" min="0" max="1" step="0.0625" id="dia" value="0.25">
-            </br>
-            <label for="num-flutes">Num Flutes</label>
-            <input class="collect" type="number" min="2" max="6" id="num-teeth" value="4">
-            </br>
+    <section class="container">
+        <section id="input">
+            <div>
+                <label class="input-form collect" for="series">Tool Type</label>
+                <select id="series">
+                </select>
+            </div>
 
-            <label for="tool-type">End Type: </label>
-            <select id="tool-type" class="input-form collect" value="FB">
-                <option value="FB">Square Corner</option>
-                <option value="BN">Ball Nose</option>
-                <option value="RAD">Corner Radius</option>
-            </select><br>
-            <label for="radius">Corner Radius Size</label>
-            <input class="collect" type="number" min="0" max="5" step="0.03125" id="radius" value="0">
-            </br>
+            <div>
+                <label class="input-form collect" for="tool-type">Material Type</label>
+                <select id="material">
+                </select>
+            </div>
 
-            <label for="depth-of-cut">Depth Of Cut</label>
-            <input class="collect" type="number" min="0" max="5" step="0.0625" id="depth-of-cut" value=".25">
-            </br>
-            <label for="step-over">Step Over</label>
-            <input class="collect" type="number" min="0" max="0.5" step="0.005" id="step-over" value="0.035">
-            </br>
-            <label for="max-rpm">Max RPM</label>
-            <input class="collect" type="number" min="1000" max="30000" step="1000" id="max-rpm" value="15000">
-            </br>
-            <label for="aggression">Aggression</label>
-            <input class="collect" type="number" min="1" max="10" step="1" id="aggression" value="5">
-            </br>
-        </form>
-    </section>
-    <section">
-        <ul id="post">
+            <div>
+                <label for="measure">Measure</label>
+                <select id="measure" class="input-form collect" value="Imperial">
+                    <option value="Imperial">Imperial</option>
+                    <!-- <option value="Metric">Metric</option> -->
+                </select>
+            </div>
 
-        </ul>
+            <div>
+                <label for="cut-dia">Cut Dia</label>
+                <input class="collect" type="number" min="0" max="1" step="0.0625" id="dia" value="0.5">
+            </div>
+
+            <div>
+                <label for="num-flutes">Num Flutes</label>
+                <input class="collect" type="number" min="2" max="6" id="num-teeth" value="4">
+            </div>
+
+            <div>
+                <label for="tool-type">End Type</label>
+                <select id="tool-type" class="input-form collect" value="FB">
+                    <option value="FB">Square Corner</option>
+                    <option value="BN">Ball Nose</option>
+                    <option value="RAD">Corner Radius</option>
+                    <option value="CC">Corner Chamfer</option>
+                </select>
+            </div>
+
+            <div class="hide">
+                <label for="radius" hidden>Corner Radius Size</label>
+                <input class="collect" type="number" min="0" max="5" step="0.03125" id="radius" value="0">
+            </div>
+
+            <div class="hide">
+                <label for="chamfer-depth" hidden>Chamfer Depth from tip</label>
+                <input class="collect" type="number" min="0" max="5" step="0.03125" id="chamfer-depth" value="0">
+            </div>
+
+            <div class="hide">
+                <label for="chamfer-angle" hidden>Chamfer Angle</label>
+                <input class="collect" type="number" min="0" max="89" step="1" id="chamfer-angle" value="45">
+            </div>
+
+            <div>
+                <label for="depth-of-cut">Depth Of Cut</label>
+                <input class="collect" type="number" min="0" max="5" step="0.0625" id="depth-of-cut" value="0.05">
+            </div>
+
+            <div>
+                <label for="step-over">Step Over</label>
+                <input class="collect" type="number" min="0" max="0.5" step="0.005" id="step-over" value="0.05">
+            </div>
+
+            <div>
+                <label for="max-rpm">Max RPM</label>
+                <input class="collect" type="number" min="1000" max="30000" step="1000" id="max-rpm" value="15000">
+            </div>
+
+            <div>
+                <label for="aggression">Aggression</label>
+                <input class="collect" type="number" min="1" max="10" step="1" id="aggression" value="5">
+            </div>
 
         </section>
+        <section id="output">
+            <ul id="post">
+            </ul>
+        </section>
+    </section>
 
 
-        <script type="module" src="./js/calculation.js"></script>
-        <script type="module" src="./js/input.js"></script>
+    <script type="module" src="./js/calculation.js"></script>
+    <script type="module" src="./js/input.js"></script>
 
 </body>
 

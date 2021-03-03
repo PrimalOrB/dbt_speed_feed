@@ -1,11 +1,9 @@
 import { sfmTable, materialTable } from './tables.js';
 
-var input = {}
 var output = {}
 
 export function runCalculate(e) {
-    console.log(e)
-return updateCalc(e)
+    return updateCalc(e)
 }
 
 function updateCalc(input) {
@@ -34,7 +32,6 @@ function updateCalc(input) {
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
     output['ipm'] = output['ipt'] * output['rpm'] * filterInput[0]['num-teeth'];
     // apply chip thinning
-    console.log(filterInput[0])
     chipThin(output, filterInput[0])
     // continue after chip thinning update
     output['removal'] = filterInput[0]['depth-of-cut'] * filterInput[0]['step-over'] * output['ipm'];

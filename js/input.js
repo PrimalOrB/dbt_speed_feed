@@ -76,6 +76,7 @@ function output(e) {
         }
     }
     post( runCalculate(outputObj) )
+    hideDOM(outputObj)
 }
 
 function post(e) {
@@ -84,5 +85,30 @@ function post(e) {
     for ( const [key, value] of Object.entries(e) ) {
         postDOM.insertAdjacentHTML('beforeend',`<li class="result"><p class="key">${key}</p>  <p class="value">${value.toFixed(4)}</p></li>`)
     }
+}
+
+function hideDOM(e) {
+    var type = e['tool-type']
+    console.log(type)
+    switch( type ) {
+        case 'RAD':
+            document.getElementById('radius').parentNode.classList.remove("hide") 
+        console.log(e)
+        break
+        case 'CC':
+            document.getElementById('chamfer-depth').parentNode.classList.remove("hide") 
+            document.getElementById('chamfer-angle').parentNode.classList.remove("hide")
+        console.log(e)
+        break
+        default:
+            //reset radius
+            document.getElementById('radius').parentNode.classList.add("hide")
+            document.getElementById('radius').value = 0;
+            //reset chamfer
+            document.getElementById('chamfer-depth').parentNode.classList.add("hide") 
+            document.getElementById('chamfer-depth').value = 0;
+            document.getElementById('chamfer-angle').parentNode.classList.add("hide") 
+            document.getElementById('chamfer-angle').value = 0;
+    } 
 }
 
