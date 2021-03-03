@@ -82,7 +82,7 @@ function post(e) {
     var postDOM = document.getElementById('post')
     postDOM.innerHTML = "";
     for ( const [key, value] of Object.entries(e) ) {
-        postDOM.insertAdjacentHTML('beforeend',`<li>${key} - ${value.toFixed(4)}</li>`)
+        postDOM.insertAdjacentHTML('beforeend',`<li class="result"><p class="key">${key}</p>  <p class="value">${value.toFixed(4)}</p></li>`)
     }
 }
 
