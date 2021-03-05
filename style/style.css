@@ -30,7 +30,7 @@ body {
   margin-top: 0.5em
 }
 
-#input label ,#series, #material, #tool-type, #measure {
+#input label ,#series, #material, #tool-type, #measure, #cutting-measure {
   display: block;
   width: 100%
 }
@@ -41,7 +41,7 @@ body {
   font-weight: bold;
 }
 
-#series, #material, #tool-type, input, #measure {
+#series, #material, #tool-type, input, #measure, #cutting-measure {
   padding: 5px 10px 5px 10px;
   border-radius: 15px;
   outline: none;

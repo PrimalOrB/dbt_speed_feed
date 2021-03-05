@@ -9,31 +9,52 @@ export function runCalculate(e) {
 function updateCalc(input) {
     // clear current output
     output = {}
+
+    // adjust cutting tool definition by measure type to imperial
+    if ( input.measure === "Metric" ) {
+        var adjust = ['dia', 'radius', 'chamfer-depth']
+        for ( var i = 0; i < adjust.length; i++ ) {
+            input[`${adjust[i]}`] = input[`${adjust[i]}`] / 25.4
+        }
+    };
+
+    // adjust cutting tool definition by measure type to imperial
+    if ( input['cutting-measure'] === "Metric" ) {
+        var adjust = ['depth-of-cut', 'step-over']
+        for ( var i = 0; i < adjust.length; i++ ) {
+            input[`${adjust[i]}`] = input[`${adjust[i]}`] / 25.4
+        }
+    };
     
     // find matching SFM table
     var filterInput = sfmTable.filter(lookup => lookup.series == input.series && lookup.material == input.material)
-
+    
     // add inputs to filtered object
     Object.assign(filterInput[0],input)
-
+    
     // add material selection data to filtered object
     var materialType = materialTable.filter( lookup => lookup.material === input.material )
     Object.assign(filterInput[0],materialType[0])
-
+    
     // filter for series table
     filterInput[0].table = filterInput[0].table.filter(lookup => lookup.series == filterInput[0].series && lookup.material == filterInput[0].material)
     // interpolate FPT values from low and high dia ranges
     filterInput[0].fpt = interpolateFPT(filterInput[0])
     // calculate outputs
     output['effective-diameter'] = filterInput[0].dia;
+
     output['sfm'] = interpolateSFM(filterInput[0]);
+    
     output['ipt'] = filterInput[0]['step-over'] >= ( filterInput[0].dia * 0.8 ) ? 
                     filterInput[0].fpt * 0.8 : 
-                    filterInput[0].fpt;
+                    filterInput[0].fpt;      
+                             
     output['rpm'] = filterInput[0]['max-rpm'] === undefined ?
                     Math.round( output['sfm'] * 12 / Math.PI / filterInput[0].dia / 100 ) * 100 :
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
+                         
     output['ipm'] = output['ipt'] * output['rpm'] * filterInput[0]['num-teeth'];
+
 
     // apply chip thinning
     if(input.thinning){
@@ -45,6 +66,22 @@ function updateCalc(input) {
         output['min-hp'] = ( output['removal'] * filterInput[0]['specific-energy'] ) / 0.75;
         output['spindle-tq']  = output['min-hp'] * 0.75 * 63030 / output['rpm'];
     };
+
+    // adjust output if cutting parameters set to Metric
+    if ( input['cutting-measure'] === "Metric" ) {
+        var adjust = ['effective-diameter', 'ipt', 'ipm', 'actual-chip-thickness', 'combined-chip-thin', 'removal']
+        for ( var i = 0; i < adjust.length; i++ ) {
+            output[`${adjust[i]}`] = output[`${adjust[i]}`] * 25.4
+        }
+        output.mmpt = output.ipt
+        delete output.ipt
+        output.mmpm = output.ipm
+        delete output.ipm
+        output.smm = output.sfm * 3.28084
+        delete output.sfm
+    };
+
+
     return output
 }
 
@@ -62,8 +99,9 @@ function interpolateFPT(obj){
     } 
     var a = lowMatch(obj)
     var b = highMatch(obj)
-   
-    if ( a !== b ) { 
+
+    
+    if ( a.fpt !== b.fpt ) { 
         var ratio = (obj.dia - a['cut-dia']) / ( b['cut-dia'] - a['cut-dia'] )
         return ( ( b.fpt - a.fpt ) * ratio ) + a.fpt
     } else {

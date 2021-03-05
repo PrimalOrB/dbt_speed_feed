@@ -29,12 +29,12 @@
                 <label for="measure">Measure</label>
                 <select id="measure" class="input-form collect" value="Imperial">
                     <option value="Imperial">Imperial</option>
-                    <!-- <option value="Metric">Metric</option> -->
+                    <option value="Metric">Metric</option>
                 </select>
             </div>
 
             <div>
-                <label for="cut-dia">Cut Dia</label>
+                <label for="dia">Cut Dia</label>
                 <input class="collect" type="number" min="0" max="1" step="0.0625" id="dia" value="0.5">
             </div>
 
@@ -66,6 +66,16 @@
             <div class="hide">
                 <label for="chamfer-angle" hidden>Chamfer Angle</label>
                 <input class="collect" type="number" min="0" max="89" step="1" id="chamfer-angle" value="45">
+            </div>
+            <br>
+            <hr>
+
+            <div>
+                <label for="cutting-measure">Cutting Parameters</label>
+                <select id="cutting-measure" class="input-form collect" value="Imperial">
+                    <option value="Imperial">Imperial</option>
+                    <option value="Metric">Metric</option>
+                </select>
             </div>
 
             <div>

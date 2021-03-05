@@ -11,7 +11,7 @@ window.addEventListener('change', function(e) {
     if(e.target.id === 'series') { // collect refresh material list and collect tool type
         updateMaterials(e)
         output(e)
-    } else if ( e.target.id === 'material' || e.target.id === 'tool-type' ) { // collect drop down selections
+    } else if ( e.target.id === 'material' || e.target.id === 'tool-type' || e.target.id === 'measure' || e.target.id === 'cutting-measure' ) { // collect drop down selections
         outputObj[`${e.target.id}`] = e.target.selectedOptions[0].innerText
         output(e)
     }  else if( e.target.classList.value === 'collect' ) { // collect other input data
@@ -78,6 +78,7 @@ function output(e) {
             outputObj[`${data[i].id}`] = parseFloat( data[i].value )
         }
     }
+    outputObj.thinning = document.getElementById('thinning').checked
     post( runCalculate(outputObj) )
     hideDOM(outputObj)
 }

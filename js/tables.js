@@ -529,6 +529,7 @@ var tMillTable =[
 
 var hvTable = [
     // Soft Steels (<35Rc)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.00010,    'fpt': 0.0004    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.03125,    'fpt': 0.0004    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.06250,    'fpt': 0.0005    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.09375,    'fpt': 0.0006    },
@@ -540,6 +541,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.43750,    'fpt': 0.0027    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Soft Steels (<35Rc)',    'cut-dia':0.50000,    'fpt': 0.0033    },
     // Alloy Steels < 35Rc (4140-4340)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.00010,    'fpt': 0.00035   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.03125,    'fpt': 0.00035   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.06250,    'fpt': 0.0005    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.09375,    'fpt': 0.0006    },
@@ -551,6 +553,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.43750,    'fpt': 0.0032    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels < 35Rc (4140-4340)',    'cut-dia':0.50000,    'fpt': 0.0035    },
     // Alloy Steels > 35Rc (4140-4340)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.00010,    'fpt': 0.0003    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.03125,    'fpt': 0.0003    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.06250,    'fpt': 0.0004    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.09375,    'fpt': 0.0005    },
@@ -562,6 +565,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.43750,    'fpt': 0.0030    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Alloy Steels > 35Rc (4140-4340)',    'cut-dia':0.50000,    'fpt': 0.0033    },
     // Tool Steels < 36Rc (A2, D2, S7)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.00010,    'fpt': 0.00025   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.03125,    'fpt': 0.00025   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.06250,    'fpt': 0.0003    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.09375,    'fpt': 0.0004    },
@@ -573,6 +577,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.43750,    'fpt': 0.0027    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels < 36Rc (A2, D2, S7)',    'cut-dia':0.50000,    'fpt': 0.0030    },
     // Tool Steels > 36Rc (A2, D2, S7)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.00010,    'fpt': 0.0002    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.03125,    'fpt': 0.0002    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.06250,    'fpt': 0.00025   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.09375,    'fpt': 0.0003    },
@@ -584,6 +589,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.43750,    'fpt': 0.0030    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Tool Steels > 36Rc (A2, D2, S7)',    'cut-dia':0.50000,    'fpt': 0.0033    },
     // Die Steels (P20, H13)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.00010,    'fpt': 0.00025 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.03125,    'fpt': 0.00025 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.06250,    'fpt': 0.0003  },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.09375,    'fpt': 0.0005  },
@@ -595,6 +601,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.43750,    'fpt': 0.0035  },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Die Steels (P20, H13)',    'cut-dia':0.50000,    'fpt': 0.0037  },
     // Easy to cut Stainless Steels (303)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.00010,    'fpt': 0.0003 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.03125,    'fpt': 0.0003 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.06250,    'fpt': 0.0004 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.09375,    'fpt': 0.0006 },
@@ -606,6 +613,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.43750,    'fpt': 0.0028 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Easy to cut Stainless Steels (303)',    'cut-dia':0.50000,    'fpt': 0.0033 },
     // Mod. Difficult to cut Stainless Steels
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.00010,    'fpt': 0.00025    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.03125,    'fpt': 0.00025    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.06250,    'fpt': 0.00035    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.09375,    'fpt': 0.0005     },
@@ -617,6 +625,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.43750,    'fpt': 0.0025     },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Mod. Difficult to cut Stainless Steels',    'cut-dia':0.50000,    'fpt': 0.0030     },
     // Difficult to cut Stainless Steels (316L)
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.00010,    'fpt': 0.00015  },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.03125,    'fpt': 0.00015  },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.06250,    'fpt': 0.0002   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.09375,    'fpt': 0.0003   },
@@ -628,6 +637,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.43750,    'fpt': 0.0023   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Difficult to cut Stainless Steels (316L)',    'cut-dia':0.50000,    'fpt': 0.0025   },
     // Gray Cast Iron
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.00010,    'fpt': 0.0003 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.03125,    'fpt': 0.0003 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.06250,    'fpt': 0.0004 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.09375,    'fpt': 0.0006 },
@@ -639,6 +649,7 @@ var hvTable = [
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.43750,    'fpt': 0.0027 },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'Gray Cast Iron',    'cut-dia':0.50000,    'fpt': 0.0035 },
     // High Temperature Alloys
+    {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'High Temperature Alloys',    'cut-dia':0.00010,    'fpt': 0.00015   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'High Temperature Alloys',    'cut-dia':0.03125,    'fpt': 0.00015   },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'High Temperature Alloys',    'cut-dia':0.06250,    'fpt': 0.0025    },
     {   'series': 'HV Ball Nose/Radius Relieved',  'material': 'High Temperature Alloys',    'cut-dia':0.09375,    'fpt': 0.0003    },
