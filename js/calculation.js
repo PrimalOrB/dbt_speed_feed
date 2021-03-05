@@ -25,7 +25,8 @@ function updateCalc(input) {
             input[`${adjust[i]}`] = input[`${adjust[i]}`] / 25.4
         }
     };
-    
+
+        
     // find matching SFM table
     var filterInput = sfmTable.filter(lookup => lookup.series == input.series && lookup.material == input.material)
     
@@ -43,6 +44,8 @@ function updateCalc(input) {
     // calculate outputs
     output['effective-diameter'] = filterInput[0].dia;
 
+   
+
     output['sfm'] = interpolateSFM(filterInput[0]);
     
     output['ipt'] = filterInput[0]['step-over'] >= ( filterInput[0].dia * 0.8 ) ? 
@@ -52,6 +55,8 @@ function updateCalc(input) {
     output['rpm'] = filterInput[0]['max-rpm'] === undefined ?
                     Math.round( output['sfm'] * 12 / Math.PI / filterInput[0].dia / 100 ) * 100 :
                     Math.round( Math.min( filterInput[0]['max-rpm'], output['sfm'] * 12 / Math.PI / filterInput[0].dia) / 100 ) *100;
+
+                    console.log(filterInput[0], output)
                          
     output['ipm'] = output['ipt'] * output['rpm'] * filterInput[0]['num-teeth'];
 
@@ -154,7 +159,7 @@ function thinningBN(obj, input) {
         obj['actual-chip-thickness'] = obj['ipt'] / obj['combined-chip-thin']
     }
     obj['ipt'] = obj['actual-chip-thickness'];
-    obj['rpm'] = Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
+    obj['rpm'] = Math.min( input['max-rpm'], Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100);
     obj['ipm'] = obj['ipt'] * obj['rpm'] * input['num-teeth']
 }
 
@@ -169,6 +174,6 @@ function thinningRAD(obj, input) {
         }
     }
     obj['ipt'] = input.fpt / obj['radial-chip-thinning-factor'];
-    obj['rpm'] = Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100;
+    obj['rpm'] = Math.min( input['max-rpm'], Math.round( Math.max( obj['rpm'], obj['sfm'] * 12 / Math.PI / output['effective-diameter']) / 100 ) * 100);
     obj['ipm'] = obj['ipt'] * obj['rpm'] * input['num-teeth']
 }
